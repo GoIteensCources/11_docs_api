@@ -6,8 +6,8 @@ import uvicorn
 from schemas import Movie, ListMovie
 
 app = FastAPI(
-    title="Project Home work #8",
-    description="## author of this api is Olexandr",
+    title="Project Home Work #8",
+    description="## API developed by Olexander Borzovec",
     version="0.1b",
     docs_url="/docs",
     redoc_url="/api/documentation"
@@ -31,7 +31,7 @@ async def get_movie():
     return ListMovie(movies=movie_db, count_movies=len(movie_db))
 
 
-@app.post("/movies", response_model=Movie, summary="For create new movie", tags=["movie"])
+@app.post("/movies", response_model=Movie, summary="Create new movie", tags=["movie"])
 async def create_movie(movie: Movie = Body(...,
                                            description="input model",
                                            example=Movie(id=4,
